@@ -1,0 +1,12 @@
+benchmark.train_datasets = 'cu_birds'
+benchmark.eval_datasets = 'cu_birds'
+include 'meta_dataset/learn/gin/setups/data_config.gin'
+include 'meta_dataset/learn/gin/setups/trainer_config.gin'
+include 'meta_dataset/learn/gin/setups/variable_way_and_shot.gin'
+Trainer.data_config = @DataConfig()
+Trainer.train_episode_config = @train/EpisodeDescriptionConfig()
+Trainer.eval_episode_config = @EpisodeDescriptionConfig()
+
+include 'meta_dataset/learn/gin/models/baseline_config.gin'
+Trainer.learning_rate = 1e-5
+BatchSplitReaderGetReader.add_dataset_offset = True
