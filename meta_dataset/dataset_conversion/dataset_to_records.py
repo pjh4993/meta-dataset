@@ -270,6 +270,7 @@ def write_tfrecord_from_npy_single_channel(class_npy_file, class_label,
     img = img.convert('RGB')
     return img
 
+  logging.info('current processing npy : %s', class_npy_file)
   with tf.io.gfile.GFile(class_npy_file, 'rb') as f:
     imgs = np.load(f)
 
